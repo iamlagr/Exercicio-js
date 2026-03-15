@@ -3,6 +3,11 @@
 Este repositorio foi criado para entregar a lista de exercicios de desnvolvimento de sitemas. O objetivo foi resolver problemas com Git.
 Cada exercicio foi feito em uma branch separada e depois unido na branch principal.
 
+## Equipe
+
+- Gabriel Costa
+- Lucas Anderson
+
 ## Tecnologias
 
 - HTML para a estrutura
@@ -31,3 +36,4 @@ Para manter o projeto organizado, usei o seguinte esquema:
 2. Fiz o commit e o push de cada uma.
 3. Usei o GitHub CLI para abrir pull requests para a branch dev.
 4. No final, juntei a branch dev com a main para a entrega final.
+
