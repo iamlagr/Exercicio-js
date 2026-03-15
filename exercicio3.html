@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 3 - Desconto de 10%</title>
+
+</head>
+<body>
+
+    <div class="container">
+        <h2>Loja de Eletrônicos</h2>
+        <p><strong>Promoção:</strong> Todo o setor com 10% de desconto!</p>
+
+        <label>Preço do Produto (R$):</label><br>
+        <input type="number" id="precoInput" placeholder="Ex: 100.00"><br><br>
+        
+        <button onclick="calcularDesconto()">Calcular Desconto</button>
+
+        <div id="res" class="resultado" style="display:none;"></div>
+    </div>
+
+    <script>
+        function calcularDesconto() {
+            const preco = parseFloat(document.getElementById('precoInput').value);
+            const display = document.getElementById('res');
+
+            if (preco > 0) {
+                // Cálculo do Desconto (10%)
+                const valorDesconto = preco * 0.10;
+                // Cálculo do Preço Final
+                const precoFinal = preco - valorDesconto;
+
+                display.style.display = "block";
+                display.innerHTML = 
+                    `Valor do Desconto: <strong>R$ ${valorDesconto.toFixed(2)}</strong><br>` +
+                    `Preço Final a Pagar: <strong>R$ ${precoFinal.toFixed(2)}</strong>`;
+            } else {
+                alert("Por favor, digite um valor válido.");
+            }
+        }
+    </script>
+
+</body>
+</html>

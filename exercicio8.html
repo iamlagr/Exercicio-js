@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 8 - Reajuste de Preço</title>
+    <style>
+        body { font-family: sans-serif; margin: 30px; background-color: #f9f9f9; }
+        .box { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 350px; }
+        .res { margin-top: 20px; padding: 15px; border-left: 5px solid #e74c3c; background: #fdf2f2; display: none; }
+        button { background: #e74c3c; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>Reajuste de Preço</h2>
+        <p>Aumento aplicado: <strong>15%</strong></p>
+
+        <label>Preço Atual do Produto (R$):</label><br>
+        <input type="number" id="precoInput" placeholder="Ex: 100.00" step="0.01"><br><br>
+        
+        <button onclick="calcularReajuste()">Calcular Novo Preço</button>
+
+        <div id="resultado" class="res"></div>
+    </div>
+
+    <script>
+        function calcularReajuste() {
+            const precoAtual = parseFloat(document.getElementById('precoInput').value);
+            const divRes = document.getElementById('resultado');
+
+            if (precoAtual > 0) {
+                // Cálculo do aumento (15%)
+                const valorAumento = precoAtual * 0.15;
+                const novoPreco = precoAtual + valorAumento;
+
+                divRes.style.display = "block";
+                divRes.innerHTML = 
+                    `Preço Original: R$ ${precoAtual.toFixed(2)}<br>` +
+                    `Valor do Aumento (15%): <span style="color: red;">+ R$ ${valorAumento.toFixed(2)}</span><br>` +
+                    `<strong>Novo Preço Final: R$ ${novoPreco.toFixed(2)}</strong><br><br>` +
+                    `<small>Diferença total: R$ ${valorAumento.toFixed(2)}</small>`;
+            } else {
+                alert("Insira um preço válido.");
+            }
+        }
+    </script>
+</body>
+</html>
