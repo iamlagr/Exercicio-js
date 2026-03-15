@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 4 - Juros Simples</title>
+    <style>
+        body { font-family: sans-serif; margin: 30px; background-color: #f0f2f5; }
+        .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); width: 400px; }
+        .result { margin-top: 20px; padding: 10px; border-left: 5px solid #3498db; background: #e8f4fd; }
+        .detalhe { font-size: 0.9em; color: #666; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Simulador de Empréstimo</h2>
+        <p>Valor do Empréstimo: <strong>R$ 1.000,00</strong></p>
+        <p>Taxa de Juros: <strong>5% ao mês</strong></p>
+
+        <label>Número de meses para pagamento:</label><br>
+        <input type="number" id="mesesInput" placeholder="Ex: 12"><br><br>
+        
+        <button onclick="calcularEmprestimo()">Calcular Total</button>
+
+        <div id="res" class="result" style="display:none;"></div>
+    </div>
+
+    <script>
+        function calcularEmprestimo() {
+            const t = parseInt(document.getElementById('mesesInput').value);
+            const C = 1000; // Capital inicial fixo
+            const i = 0.05; // Taxa de 5% (5/100)
+            const divRes = document.getElementById('res');
+
+            if (t > 0) {
+                // Cálculo de Juros Simples: J = C * i * t
+                const jurosTotal = C * i * t;
+                const valorTotal = C + jurosTotal;
+                const juroMensal = C * i;
+
+                divRes.style.display = "block";
+                divRes.innerHTML = 
+                    `<h3>Resultado Final</h3>` +
+                    `Total de Juros Acumulados: <strong>R$ ${jurosTotal.toFixed(2)}</strong><br>` +
+                    `Valor Total a Pagar: <strong>R$ ${valorTotal.toFixed(2)}</strong><br><br>` +
+                    `<div class="detalhe">` +
+                    `Valor do juro mensal: R$ ${juroMensal.toFixed(2)}<br>` +
+                    `Duração do contrato: ${t} meses` +
+                    `</div>`;
+            } else {
+                alert("Por favor, insira um número de meses válido.");
+            }
+        }
+    </script>
+</body>
+</html>
