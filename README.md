@@ -1,6 +1,6 @@
 # Trabalho sobre Git 
 
-Este repositorio foi criado para entregar a lista de exercicios de desnvolvimento de sitemas. O objetivo foi resolver problemas com Git.
+Este repositorio foi criado para entregar a lista de exercicios de desnvolvimento de sitemas. O objetivo foi resolver problemas com versionamento do Git.
 Cada exercicio foi feito em uma branch separada e depois unido na branch principal.
 
 ## Equipe
