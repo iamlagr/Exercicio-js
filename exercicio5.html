@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 5 - Comissão de Vendedor</title>
+    <style>
+        body { font-family: sans-serif; margin: 30px; background-color: #fdfdfd; }
+        .box { border: 2px solid #8e44ad; padding: 20px; width: 380px; border-radius: 10px; background: white; }
+        .res { margin-top: 20px; padding: 15px; background: #f4ecf7; border-left: 5px solid #8e44ad; display: none; }
+        button { background: #8e44ad; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>Cálculo de Comissão</h2>
+        <p>Taxa de Comissão: <strong>5% sobre as vendas</strong></p>
+        <p>Salário Fixo: <strong>R$ 1.500,00</strong></p>
+
+        <label>Valor total de vendas no mês (R$):</label><br>
+        <input type="number" id="vendasInput" placeholder="Ex: 5000.00" step="0.01"><br><br>
+        
+        <button onclick="calcularComissao()">Calcular Recebimento</button>
+
+        <div id="resultado" class="res"></div>
+    </div>
+
+    <script>
+        function calcularComissao() {
+            const vendas = parseFloat(document.getElementById('vendasInput').value);
+            const salarioFixo = 1500.00;
+            const taxaComissao = 0.05; // 5%
+            const divRes = document.getElementById('resultado');
+
+            if (vendas >= 0) {
+                // Cálculo da comissão
+                const comissao = vendas * taxaComissao;
+                // Cálculo do salário total (Desafio Adicional)
+                const salarioTotal = salarioFixo + comissao;
+
+                divRes.style.display = "block";
+                divRes.innerHTML = 
+                    `Valor Total de Vendas: <strong>R$ ${vendas.toFixed(2)}</strong><br>` +
+                    `Comissão a receber (5%): <span style="color: #8e44ad;">R$ ${comissao.toFixed(2)}</span><br><br>` +
+                    `<strong>Total a receber (Fixo + Comissão): R$ ${salarioTotal.toFixed(2)}</strong>`;
+            } else {
+                alert("Insira um valor de vendas válido.");
+            }
+        }
+    </script>
+</body>
+</html>
