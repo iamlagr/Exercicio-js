@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 9 - Parcelamento sem Juros</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; background-color: #f0f4f8; }
+        .container { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 380px; }
+        .res { margin-top: 20px; padding: 15px; border-left: 5px solid #2980b9; background: #ebf5fb; display: none; }
+        button { background: #2980b9; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; width: 100%; font-size: 16px; }
+        input, select { width: 100%; padding: 8px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Loja de Móveis</h2>
+        <p>Parcele suas compras em até <strong>5x sem juros</strong>.</p>
+
+        <label>Valor Total da Compra (R$):</label>
+        <input type="number" id="valorTotal" placeholder="0.00" step="0.01">
+
+        <label>Número de parcelas:</label>
+        <select id="qtdParcelas">
+            <option value="1">1x (À vista)</option>
+            <option value="2">2x</option>
+            <option value="3">3x</option>
+            <option value="4">4x</option>
+            <option value="5">5x</option>
+        </select>
+        
+        <button onclick="calcularParcelas()">Simular Parcelamento</button>
+
+        <div id="resultado" class="res"></div>
+    </div>
+
+    <script>
+        function calcularParcelas() {
+            const total = parseFloat(document.getElementById('valorTotal').value);
+            const numParcelas = parseInt(document.getElementById('qtdParcelas').value);
+            const divRes = document.getElementById('resultado');
+
+            if (total > 0) {
+                // Cálculo da parcela
+                const valorParcela = total / numParcelas;
+
+                divRes.style.display = "block";
+                divRes.innerHTML = 
+                    `Valor Total: <strong>R$ ${total.toFixed(2)}</strong><br>` +
+                    `Parcelado em: <strong>${numParcelas}x</strong><br>` +
+                    `Valor de cada parcela: <span style="color: #2980b9;"><strong>R$ ${valorParcela.toFixed(2)}</strong></span><br><br>` +
+                    `<small><em>Sem acréscimo de juros.</em></small>`;
+            } else {
+                alert("Por favor, insira um valor de compra válido.");
+            }
+        }
+    </script>
+</body>
+</html>
