@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 2 - Lucro Camisetas</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        .res { margin-top: 15px; padding: 10px; border: 1px solid #ccc; width: fit-content; }
+    </style>
+</head>
+<body>
+
+    <h2>Venda de Camisetas</h2>
+    <p>Preço de Custo: R$ 25,00 | Preço de Venda: R$ 40,00</p>
+
+    <label>Quantas camisetas foram vendidas?</label><br>
+    <input type="number" id="inputQtd" placeholder="Ex: 10">
+    <button onclick="calcularLucro()">Calcular Resultado</button>
+
+    <div id="resultado" class="res">O resultado aparecerá aqui.</div>
+
+    <script>
+        function calcularLucro() {
+            const qtd = Number(document.getElementById('inputQtd').value);
+            const custoUnitario = 25;
+            const vendaUnitaria = 40;
+            
+            if (qtd > 0) {
+                const lucroPorUnidade = vendaUnitaria - custoUnitario;
+                const lucroTotal = lucroPorUnidade * qtd;
+                const totalArrecadado = vendaUnitaria * qtd;
+
+                document.getElementById('resultado').innerHTML = 
+                    `Lucro por peça: R$ ${lucroPorUnidade.toFixed(2)}<br>` +
+                    `<strong>Lucro Total: R$ ${lucroTotal.toFixed(2)}</strong><br>` +
+                    `Valor Total Arrecadado: R$ ${totalArrecadado.toFixed(2)}`;
+            } else {
+                document.getElementById('resultado').innerText = "Insira uma quantidade válida.";
+            }
+        }
+    </script>
+
+</body>
+</html>
