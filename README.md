@@ -32,8 +32,8 @@ Cada exercicio foi feito em uma branch separada e depois unido na branch princip
 ## Como foi organizado o Git
 
 Para manter o projeto organizado, usei o seguinte esquema:
-1. Criei branches para cada problema (ex: feature-problem1).
-2. Fiz o commit e o push de cada uma.
-3. Usei o GitHub CLI para abrir pull requests para a branch dev.
-4. No final, juntei a branch dev com a main para a entrega final.
+1. Criamos branches para cada problema (ex: feature-problem1).
+2. Fizemos o commit e o push de cada uma.
+3. Usamos o GitHub CLI para abrir pull requests para a branch dev.
+4. No final, juntamos a branch dev com a main para a entrega final.
 
