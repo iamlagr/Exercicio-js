@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercício 10 - Juros Compostos</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; margin: 30px; background-color: #eef2f3; }
+        .card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); width: 400px; }
+        .res { margin-top: 20px; padding: 15px; border-left: 5px solid #27ae60; background: #ebf9f1; display: none; }
+        button { background: #2c3e50; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; width: 100%; font-size: 16px; transition: 0.3s; }
+        button:hover { background: #34495e; }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Simulador de Investimento</h2>
+        <p>Rendimento: <strong>2% ao mês</strong> (Juros Compostos)</p>
+
+        <label>Valor Inicial Investido (R$):</label>
+        <input type="number" id="capital" placeholder="Ex: 1000.00">
+
+        <label>Tempo da aplicação (meses):</label>
+        <input type="number" id="tempo" placeholder="Ex: 12">
+        
+        <button onclick="calcularJurosCompostos()">Calcular Evolução</button>
+
+        <div id="resultado" class="res"></div>
+    </div>
+
+    <script>
+        function calcularJurosCompostos() {
+            const C = parseFloat(document.getElementById('capital').value);
+            const t = parseInt(document.getElementById('tempo').value);
+            const i = 0.02; // Taxa de 2% ao mês
+            const divRes = document.getElementById('resultado');
+
+            if (C > 0 && t > 0) {
+                // Fórmula: M = C * (1 + i)^t
+                const montante = C * Math.pow((1 + i), t);
+                const jurosGanhos = montante - C;
+
+                divRes.style.display = "block";
+                divRes.innerHTML = 
+                    `Investimento Inicial: <strong>R$ ${C.toFixed(2)}</strong><br>` +
+                    `Tempo: <strong>${t} meses</strong><br><br>` +
+                    `Total de Juros Ganhos: <span style="color: #27ae60;">+ R$ ${jurosGanhos.toFixed(2)}</span><br>` +
+                    `<strong>Valor Final Obtido: R$ ${montante.toFixed(2)}</strong>`;
+            } else {
+                alert("Preencha os valores corretamente.");
+            }
+        }
+    </script>
+</body>
+</html>
